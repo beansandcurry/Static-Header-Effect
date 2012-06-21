@@ -1,7 +1,3 @@
-/* HTML5 ✰ Boilerplate
- * ==|== normalize ==========================================================
- */
-
 @font-face {
 	font-family: 'Cubano';
 	src: url('cubano-regular-webfont.eot');
@@ -25,16 +21,10 @@
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
-audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
-audio:not([controls]) { display: none; }
-[hidden] { display: none; }
 
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-body { margin: 0; font-size: 13px; line-height: 1.231; }
-body, button, input, select, textarea { font-family: sans-serif; color: #222; }
-
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+body { margin: 0; font-size: 14px; line-height: 1.4; }
+body, button, input, select, textarea { font-family: 'Helvetica Neue', Arial, sans-serif; color: #494a4c; }
 
 a { color: #19709d; text-decoration: none;}
 a:visited { color: #19709d; }
@@ -44,49 +34,13 @@ a:hover, a:active { outline: 0; }
 
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
-blockquote { margin: 1em 40px; }
-dfn { font-style: italic; }
-hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
-ins { background: #ff9; color: #000; text-decoration: none; }
-mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
-pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
-pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
-q { quotes: none; }
-q:before, q:after { content: ""; content: none; }
-small { font-size: 85%; }
-sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
+
 ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
-dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 svg:not(:root) { overflow: hidden; }
 figure { margin: 0; }
 
-form { margin: 0; }
-fieldset { border: 0; margin: 0; padding: 0; }
-label { cursor: pointer; }
-legend { border: 0; *margin-left: -7px; padding: 0; }
-button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
-button, input { line-height: normal; *overflow: visible; }
-table button, table input { *overflow: auto; }
-button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
-input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
-input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
-input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
-button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
-textarea { overflow: auto; vertical-align: top; resize: vertical; }
-input:valid, textarea:valid {  }
-input:invalid, textarea:invalid { background-color: #f0dddd; }
-
-table { border-collapse: collapse; border-spacing: 0; }
-td { vertical-align: top; }
-
-
-/* ==|== primary styles =====================================================
-	 Author: 
-	 ========================================================================== */
 h1, h2, h3, h4, h5 {
 	font-family: 'Bariol', arial, sans-serif;
 	font-weight: normal;
@@ -110,34 +64,13 @@ p {
 	margin: 0 0 1em 0;
 }
 
-
-#container {
-	padding: 0;
-	padding-top: 330px;
-}
-.wrap {
-	width: 960px;
-	margin: 0 auto;
-	position: relative;
-}
-#header {
-	background: url("../img/header-background-2.jpg") center -50px no-repeat;
-	height: 330px;
-	position: fixed;
-	width: 100%;
-	z-index: 1;
-	top: 0;
-}
-#header > .wrap {
-	height: 330px;
-}
 h1 {
 	font-family: Cubano, Arial, sans-serif;
 	font-size: 121px;
 	color: #fff;
 	margin: 0;
 	position: absolute;
-	bottom: -30px;
+	bottom: -40px;
 }
 h1 a {
 	color: #fff;
@@ -146,16 +79,50 @@ h1 a:hover,
 h1 a:visited {
 	color: #fff;
 }
+
+.wrap {
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/*
+The padding-top matches the height of your #header's height
+*/
+#container {
+	padding: 0;
+	padding-top: 330px;
+}
+#header {
+	position: fixed; /* Makes the #header element always stick to the same place of the screen */
+	width: 100%; /* Makes it expands across the whole screen */
+	z-index: 1; /* Makes #main go in front of the #header when user scrolls down */
+	top: 0; /* Makes it stick to the very top of the screen */
+	height: 330px; /* Total height of the #header. Make sure that #header's height matches #container's padding-top */
+	
+	/* The total background size is 2200x472 pixels. If the screen is bigger than the image, then it'll show #000 */
+	background: #000 url("../img/header-background-2.jpg") center -50px no-repeat;
+}
+#header > .wrap {
+	/* Because #header is fixed, we need to assign a height to its .wrap. Make sure it matches the #header's height */
+	height: 330px;
+}
 #main,
 #footer {
-	background: #fff;
+	position: relative; /* Allows us to specify a z-index for #main, so it can go in front of #header */
+	z-index: 99; /* A bigger z-index than #header makes it go in front of it when user scrolls down */
 }
 #main {
-	position: relative;
-	z-index: 99;
 	min-height: 600px;
 	padding-top: 50px;
+	background: #fff;
 }
+#main h2 {
+	margin: 0 0 1em 0;
+	text-align: center;
+	color: #3e4d72;
+}
+
 /* nav module */
 .nav-main {
 	position: absolute;
@@ -186,12 +153,6 @@ h1 a:visited {
 	opacity: 1;
 }
 
-#main h2 {
-	margin: 0 0 1em 0;
-	text-align: center;
-	color: #3e4d72;
-}
-
 .projects-list {
 	margin: 0;
 	padding: 0;
@@ -217,62 +178,21 @@ h1 a:visited {
 .projects-list li.last {
 	margin-right: 0;
 }
+
 #footer {
 	background: #292a2b;
 	padding: 50px 0;
 	text-align: right;
-	color: #aad8f7;
+	color: #939599;
 }
 #footer a {
 	color: #fff;
 }
 #footer a:hover {
 	color: #fff;
+	text-decoration: underline;
 }
 
-
-
-
-
-
-/* ==|== non-semantic helper classes ======================================== */
-.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
-.ir br { display: none; }
-.hidden { display: none !important; visibility: hidden; }
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
-.invisible { visibility: hidden; }
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-
-
-/* ==|== media queries ====================================================== */
-
-@media only screen and (min-width: 480px) {
-
-
-}
-
-@media only screen and (min-width: 768px) {
-
-}
-
-
-
-/* ==|== print styles ======================================================= */
- 
-@media print {
-	* { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } 
-	a, a:visited { text-decoration: underline; }
-	a[href]:after { content: " (" attr(href) ")"; }
-	abbr[title]:after { content: " (" attr(title) ")"; }
-	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } 
-	pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-	thead { display: table-header-group; }
-	tr, img { page-break-inside: avoid; }
-	img { max-width: 100% !important; }
-	@page { margin: 0.5cm; }
-	p, h2, h3 { orphans: 3; widows: 3; }
-	h2, h3 { page-break-after: avoid; }
-}
